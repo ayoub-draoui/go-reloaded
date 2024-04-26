@@ -30,7 +30,7 @@ func main() {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		line := scanner.Text()
-		fmt.Println(line)
+		// fmt.Println(line)
 		changedText := reloaded.EditText(line)
 		_, err = output.WriteString(changedText + "\n")
 		if err != nil {
