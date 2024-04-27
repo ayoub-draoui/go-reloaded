@@ -8,7 +8,8 @@ import (
 
 func EditText(text string) string {
 	// the name of the variable should have a meaning
-	words := strings.Split(text, " ")
+
+	words := strings.Split(fixTheVowel(text), " ")
 
 	for idx, word := range words {
 
@@ -30,10 +31,13 @@ func EditText(text string) string {
 			words[idx-1] = strconv.FormatInt(decimal, 10)
 			words[idx] = ""
 		} else if word == "(cap)" {
+			if idx == 0 {
+				return ""
+			}
 			words[idx-1] = toCapitalize(words[idx-1])
 			words[idx] = ""
 		} else if word == "(low," {
-			
+
 			nbrStr := (strings.TrimRight(words[idx+1], "),"))
 			nbr, _ := strconv.Atoi(nbrStr)
 			for l := 0; l < nbr; l++ {
@@ -43,6 +47,9 @@ func EditText(text string) string {
 				// fmt.Println(words[idx-nbr+l])
 			}
 		} else if word == "(cap," {
+			if idx+1 == len(words) {
+				return ""
+			}
 			nbrStr := (strings.TrimRight(words[idx+1], ")!:;,"))
 			nbr, _ := strconv.Atoi(nbrStr)
 			for l := 0; l < nbr; l++ {
@@ -60,14 +67,13 @@ func EditText(text string) string {
 				words[idx+1] = ""
 				// fmt.Println(words[idx-nbr+l])
 			}
-		} 
+		}
 		// else if word == "(hex," {
 		// 	decimal, _ := strconv.ParseInt(words[idx-1], 16, 64)
 		// 	words[idx-1] = strconv.FormatInt(decimal, 10)
 		// 	words[idx] = ""
 		// 	words[idx+1] = ""
-		// } 
-		 
+		// }
 
 	}
 	return strings.Join(words, " ")
