@@ -4,8 +4,19 @@ import (
 	"strings"
 )
 
+// func notEmpty(s []string) []string {
+// 	new := []string{}
+// 	for _, v := range s {
+// 		if v != "" {
+// 			new = append(new, v)
+// 		}
+// 	}
+// 	return new
+// }
+// && len(item) >= 1
+
 func fixTheVowel(text string) string {
-	words := strings.Split(text, " ")
+	words := strings.Fields(text)
 	data := words
 	// data := text
 	res := ""
