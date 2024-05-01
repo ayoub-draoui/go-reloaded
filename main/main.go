@@ -20,6 +20,14 @@ func main() {
 		os.Exit(1)
 
 	}
+	if os.Args[1] != "sample.txt" {
+		fmt.Println("Error: the argument must be sample.txt")
+		os.Exit(1)
+	}
+	if os.Args[2] != "result.txt" {
+		fmt.Println("Error: the argument must be result.txt")
+		os.Exit(1)
+	}
 
 	output, err := os.Create(os.Args[2])
 	if err != nil {
@@ -36,12 +44,13 @@ func main() {
 		if err != nil {
 			fmt.Println("Error writing to output file:", err)
 			os.Exit(1)
-			defer output.Close()
 		}
+		defer output.Close()
 	}
 }
 
 // Edit.text is the file that gonna contain the functions that will be used to edit the text
 func EditText(line string) string {
+	
 	return line
 }
