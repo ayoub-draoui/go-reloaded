@@ -71,7 +71,7 @@ func EditText(text string) string {
 				for l := 0; l < nbr; l++ {
 					if nbr > idx {
 						fmt.Println("Err: the number next the function should at least equal the range of str ")
-						os.Exit(1)
+						return (text)
 					}
 					words[idx-nbr+l] = strings.ToLower(words[idx-nbr+l])
 					words[idx] = ""
@@ -81,7 +81,7 @@ func EditText(text string) string {
 
 			}else{
 				fmt.Println("Err: not correct !!!!!! ")
-				os.Exit(1)
+				return (text)
 			}
 		} else if word == "(cap," {
 			if lastItem[len(lastItem)-1] == ')' && idx < len(words)-1 {
@@ -90,7 +90,7 @@ func EditText(text string) string {
 				for l := 0; l < nbr; l++ {
 					if nbr > idx {
 						fmt.Println("Err: the number next the function should at least equal the range of str")
-						os.Exit(1)
+						return (text)
 					}
 					words[idx-nbr+l] = toCapitalize(words[idx-nbr+l])
 					words[idx] = ""
@@ -109,7 +109,7 @@ func EditText(text string) string {
 				for l := 0; l < nbr; l++ {
 					if nbr > idx {
 						fmt.Println("Err: bla bla bla...")
-						os.Exit(1)
+						return (text)
 					}
 					words[idx-nbr+l] = strings.ToUpper(words[idx-nbr+l])
 					words[idx] = ""
@@ -118,7 +118,7 @@ func EditText(text string) string {
 				}
 			} else {
 				fmt.Println("Err: not correct !!!!!! ")
-				os.Exit(1)
+				return (text)
 			}
 
 			//}
@@ -129,5 +129,6 @@ func EditText(text string) string {
 	// }
 	// fmt.Println(words)
 	// return ""
-	return fixTheVowel(strings.Join(words, " "))
+
+	return Punctuation(fixTheVowel(strings.Join(words, " ")))
 }
