@@ -32,6 +32,7 @@ func FixSingleQuotes(text string) string {
 					continue
 				}
 				if first {
+					// first cote
 					if result[len(result)-1] != ' ' {
 						result += " "
 					}
@@ -41,6 +42,7 @@ func FixSingleQuotes(text string) string {
 					}
 					first = false
 				} else {
+					// last cote
 					first = true
 					if result[len(result)-1] == ' ' {
 						result = result[:len(result)-1]

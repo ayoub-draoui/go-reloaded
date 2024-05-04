@@ -48,9 +48,3 @@ func main() {
 		defer output.Close()
 	}
 }
-
-// Edit.text is the file that gonna contain the functions that will be used to edit the text
-func EditText(line string) string {
-	
-	return line
-}

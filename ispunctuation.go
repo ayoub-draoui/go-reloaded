@@ -8,7 +8,7 @@ import (
 
 func Punctuation(text string) string {
 	result := ""
-	if len(text) < 3 {
+	if len(text) < 2 {
 		return text
 	}
 	 for idx, char:= range text {
